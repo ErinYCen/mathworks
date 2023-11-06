@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 
 //sample api endpoint
-app.get("/api/helloYeah", (req, res) => {
-  res.json({ message: "im checking if this is working" });
+app.get("/", (req, res) => {
+  console.log("Hello World YEAH"); //log the sentence to the terminal
+  res.send("Hell YEAH from the backend");
 });
 
 const port = 3000;
