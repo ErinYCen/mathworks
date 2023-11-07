@@ -25,7 +25,7 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   setup() {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const opetations = ["+", "-", "*", "/"];
+    const operations = ["+", "-", "*", "/"];
     const currentOperation = ref<string | null>(null);
     const firstOperand = ref<number | null>(null);
     const display = ref("");
@@ -35,6 +35,7 @@ export default defineComponent({
     };
     return {
       numbers,
+      operations,
       display,
       inputNumber,
     };
@@ -67,5 +68,19 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   height: 10vh;
+}
+
+.operations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 100px;
+}
+
+button {
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  justify-content: center;
 }
 </style>
