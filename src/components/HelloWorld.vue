@@ -32,5 +32,7 @@ export default {
 button {
   padding: 10px 20px;
   font-size: 16px;
+  justify-content: center;
+  align-items: center;
 }
 </style>
