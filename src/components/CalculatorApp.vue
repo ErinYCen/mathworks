@@ -10,6 +10,12 @@
         {{ number }}
       </button>
     </div>
+    <div class="operations">
+      <button v-for="op in operations" :key="op" @click="inputOperation(op)">
+        {{ op }}
+      </button>
+      <button @click="calculateResult">=</button>
+    </div>
   </div>
 </template>
 
@@ -19,6 +25,9 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   setup() {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const opetations = ["+", "-", "*", "/"];
+    const currentOperation = ref<string | null>(null);
+    const firstOperand = ref<number | null>(null);
     const display = ref("");
     const inputNumber = (number: number) => {
       console.log(number);
