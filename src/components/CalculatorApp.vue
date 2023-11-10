@@ -33,11 +33,43 @@ export default defineComponent({
       console.log(number);
       display.value += number.toString();
     };
+    const inputOperation = (op: string) => {
+      firstOperand.value = parseFloat(display.value); //Save the first number
+      currentOperation.value = op; //Save the operation
+      display.value = ""; //clear the display for the second number
+    };
+    const calculateResult = () => {
+      if (firstOperand.value !== null && currentOperation.value) {
+        const secondOperand = parseFloat(display.value);
+        switch (currentOperation.value) {
+          case "+":
+            display.value = (firstOperand.value + secondOperand).toString();
+            break;
+          case "-":
+            display.value = (firstOperand.value - secondOperand).toString();
+            break;
+          case "*":
+            display.value = (firstOperand.value * secondOperand).toString();
+            break;
+          case "/":
+            if (secondOperand !== 0) {
+              display.value = (firstOperand.value / secondOperand).toString();
+            } else {
+              display.value = "Error";
+            }
+            break;
+        }
+        firstOperand.value = null;
+        currentOperation.value = null;
+      }
+    };
     return {
       numbers,
       operations,
       display,
       inputNumber,
+      inputOperation,
+      calculateResult,
     };
   },
 });
