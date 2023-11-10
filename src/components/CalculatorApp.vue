@@ -14,7 +14,7 @@
       <button v-for="op in operations" :key="op" @click="inputOperation(op)">
         {{ op }}
       </button>
-      <button @click="calculateResult">=</button>
+      <button class="equals" @click="calculateResult">=</button>
     </div>
   </div>
 </template>
@@ -113,6 +113,10 @@ button {
   padding: 10px;
   font-size: 1.5rem;
   cursor: pointer;
+}
+.equals {
+  grid-column: span 4;
+  align-items: center;
   justify-content: center;
 }
 </style>
