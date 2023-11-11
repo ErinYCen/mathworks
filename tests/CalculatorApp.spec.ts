@@ -1,9 +1,9 @@
-import { performCalculation } from "../src/components/CalculatorApp.vue";
+import { performCalculation } from "../src/utils/calculatorUtils";
 
 describe("CalculatorApp.vue", () => {
   it("#s + #s", () => {
     const result = performCalculation(2, 4, "+");
-    expect(result).toBe(7);
+    expect(result).toBe(6);
   });
   it("0 + #s", () => {
     const result = performCalculation(0, 4, "+");
@@ -17,6 +17,6 @@ describe("CalculatorApp.vue", () => {
 
   it("0 + 0", () => {
     const result = performCalculation(0, 0, "+");
-    expect(result).toBe(7);
+    expect(result).toBe(0);
   });
 });
