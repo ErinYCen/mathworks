@@ -22,6 +22,25 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
+//Expose the calculation logic as a separate function for testing
+export function performCalculation(
+  firstOperand: number,
+  secondOperand: number,
+  operation: string
+): number | string {
+  switch (operation) {
+    case "+":
+      return firstOperand + secondOperand;
+    case "-":
+      return firstOperand - secondOperand;
+    case "*":
+      return firstOperand * secondOperand;
+    case "/":
+      return secondOperand !== 0 ? firstOperand / secondOperand : "Error";
+    default:
+      return "Invalid Operation";
+  }
+}
 export default defineComponent({
   setup() {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -29,40 +48,31 @@ export default defineComponent({
     const currentOperation = ref<string | null>(null);
     const firstOperand = ref<number | null>(null);
     const display = ref("");
+
     const inputNumber = (number: number) => {
       console.log(number);
       display.value += number.toString();
     };
+
     const inputOperation = (op: string) => {
       firstOperand.value = parseFloat(display.value); //Save the first number
       currentOperation.value = op; //Save the operation
       display.value = ""; //clear the display for the second number
     };
+
     const calculateResult = () => {
       if (firstOperand.value !== null && currentOperation.value) {
         const secondOperand = parseFloat(display.value);
-        switch (currentOperation.value) {
-          case "+":
-            display.value = (firstOperand.value + secondOperand).toString();
-            break;
-          case "-":
-            display.value = (firstOperand.value - secondOperand).toString();
-            break;
-          case "*":
-            display.value = (firstOperand.value * secondOperand).toString();
-            break;
-          case "/":
-            if (secondOperand !== 0) {
-              display.value = (firstOperand.value / secondOperand).toString();
-            } else {
-              display.value = "Error";
-            }
-            break;
-        }
+        display.value = performCalculation(
+          firstOperand.value,
+          secondOperand,
+          currentOperation.value
+        ).toString();
         firstOperand.value = null;
         currentOperation.value = null;
       }
     };
+
     return {
       numbers,
       operations,
