@@ -1,39 +1,29 @@
 import { mount } from "@vue/test-utils";
-import CalculatorApp from "/Users/erinc/DDisk/Github/web-calculator/src/components/CalculatorApp.vue";
-describe("CalculatorApp.vue - Addition Functionality", () => {
+import CalculatorApp from "@Users/erinc/DDisk/Github/web-calculator/src/components/CalculatorApp.vue";
+
+describe("CalculatorApp.vue", () => {
   let wrapper: any;
 
   beforeEach(() => {
     wrapper = mount(CalculatorApp);
   });
 
-  const clickNumber = (number: number) => {
-    const button = wrapper
-      .findAll("button")
-      .filter((btn) => btn.text() === number.toString())[0];
-    button.trigger("click");
-  };
+  //Unit test for "+"
+  describe("+", () => {
+    test("#s + #s", () => {
+      expect(wrapper.vm.add(3, 4)).toBe(7);
+    });
 
-  const clickOperation = (operation: string) => {
-    const button = wrapper
-      .findAll("button")
-      .filter((btn) => btn.text() === operation)[0];
-    button.trigger("click");
-  };
+    test("0 + #s", () => {
+      expect(wrapper.vm.add(0, 2)).toBe(2);
+    });
 
-  const clickEquals = () => {
-    const button = wrapper.find(".equals");
-    button.trigger("click");
-  };
+    test("#s + 0", () => {
+      expect(wrapper.vm.add(5, 0)).toBe(5);
+    });
 
-  //Test #s + #s
-  it("addup"),
-    async () => {
-      clickNumber(3);
-      clickOperation("+");
-      clickNumber(4);
-      clickEquals();
-
-      expect(wrapper.find(".display").test()).toBe("7");
-    };
+    test("0 + 0", () => {
+      expect(wrapper.vm.add(0, 0)).toBe(0);
+    });
+  });
 });
