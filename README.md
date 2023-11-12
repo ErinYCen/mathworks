@@ -1,7 +1,7 @@
 # web-calculator
 This is a web-calculator now contains the "0" number. So usable ish.
 ## Installation
-1. Clone the repo: 
+Clone the repo: 
 git clone git@github.com:Fscrew/web-calculator.git
 
 ## Project setup
