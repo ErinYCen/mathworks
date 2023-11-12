@@ -21,11 +21,10 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { performCalculation } from "../utils/calculatorUtils";
 
 export default defineComponent({
   setup() {
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
     const operations = ["+", "-", "*", "/"];
     const currentOperation = ref<string | null>(null);
     const firstOperand = ref<number | null>(null);
@@ -42,16 +41,31 @@ export default defineComponent({
       display.value = ""; //clear the display for the second number
     };
 
-    const calculateResult = () => {
+    const calculateResult = async () => {
       if (firstOperand.value !== null && currentOperation.value) {
         const secondOperand = parseFloat(display.value);
-        display.value = performCalculation(
-          firstOperand.value,
-          secondOperand,
-          currentOperation.value
-        ).toString();
-        firstOperand.value = null;
-        currentOperation.value = null;
+
+        //Make a request to the backend to perform the calculation
+        try {
+          const response = await fetch("http://localhost:3000/calculate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              firstOperand: firstOperand.value,
+              secondOperand,
+              operation: currentOperation.value,
+            }),
+          });
+          const data = await response.json();
+          display.value = data.result.toString();
+          firstOperand.value = null;
+          currentOperation.value = null;
+        } catch (error) {
+          console.error("Error calculating:", error);
+          display.value = "Error";
+        }
       }
     };
 
@@ -97,8 +111,8 @@ export default defineComponent({
 .operations {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 100px;
+  gap: 15px;
+  margin-top: 150px;
 }
 
 button {

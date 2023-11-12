@@ -1,4 +1,4 @@
-import { performCalculation } from "../src/utils/calculatorUtils";
+import { performCalculation } from "../backend/utils/calculatorUtils";
 
 describe("CalculatorApp.vue", () => {
   //Test for "+" operation
