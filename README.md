@@ -38,15 +38,19 @@ To run the calculator, open your browser and go to `http://localhost:8080`.
 ## Run Hello World in Docker
 1. Install Docker from Docker's official website
 2. Check if it's installed properly
+```
 docker --version
+```
 3. Run the docker container
+```
 cd hello-world-docker
 docker run hello-world
+```
 
 ## Run the Web Calculator with Docker Compose
 ```bash
 docker-compose up --build
-
+```
 ## Technologies Used
 - Vue.js
 - Node.js
