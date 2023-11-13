@@ -11,8 +11,11 @@ export function performCalculation(
     case "*":
       return firstOperand * secondOperand;
     case "/":
-      return secondOperand !== 0 ? firstOperand / secondOperand : "Error";
+      if (secondOperand === 0) {
+        throw new Error("Division by zero is not OK.");
+      }
+      return firstOperand / secondOperand;
     default:
-      return "Invalid Operation";
+      throw new Error("Invalid Operation");
   }
 }

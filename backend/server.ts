@@ -1,23 +1,13 @@
 import { Request, Response } from "express";
-import cors from "cors";
 import { performCalculation } from "./utils/calculatorUtils";
 
 const express = require("express");
 const app = express();
 
-app.use(cors());
-
-//Middleware to parse incoming JSON requests
 app.use(express.json());
 
-//API setting
-app.get("/api/hello", (req: Request, res: Response) => {
-  res.json({ message: "API is set" });
-});
-
-//sample input
 app.get("/", (req: Request, res: Response) => {
-  console.log("Hello World YEAH"); //log the sentence to the terminal
+  console.log("Hello World YEAH");
   res.send("Hell YEAH from the backend");
 });
 
@@ -30,9 +20,16 @@ app.listen(port, () => {
 app.post("/calculate", (req: Request, res: Response) => {
   const { firstOperand, secondOperand, operation } = req.body;
   try {
-    const result = performCalculation(firstOperand, secondOperand, operation);
+    if (!firstOperand || !secondOperand || !operation) {
+      throw new Error("Operands and operation must be provided.");
+    }
+
+    if (isNaN(Number(firstOperand)) || isNaN(Number(secondOperand))) {
+      throw new Error("Operands must be valid numbers.");
+    }
+    const result = performCalculation(Number(firstOperand), Number(secondOperand), operation);
     res.json({ result });
-  } catch (error) {
-    res.status(400).json({ error: "Invalid expression" });
+  } catch (error:any) {
+    res.status(400).json({ error: error.message });
   }
 });

@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2020",          // Use a modern JavaScript version
-    "module": "commonjs",         // CommonJS is required for Node.js
+    "target": "es2020",
+    "module": "commonjs",
     "strict": true,
-    "esModuleInterop": true,      // Enable support for CommonJS modules with ES6-style imports
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
