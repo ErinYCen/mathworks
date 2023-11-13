@@ -36,6 +36,10 @@ docker --version
 cd hello-world-docker
 docker run hello-world
 
+## Run the Web Calculator with Docker Compose
+```bash
+docker-compose up --build
+
 ## Technologies Used
 - Vue.js
 - Node.js
