@@ -21,3 +21,6 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+#Useless file
+frontend/dist/js/about.1e62c0cb.js
