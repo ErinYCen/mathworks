@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <HelloWorld />
     <CalculatorApp />
   </div>
 </template>
 
 <script lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
 import CalculatorApp from "./components/CalculatorApp.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
     CalculatorApp,
   },
 };
