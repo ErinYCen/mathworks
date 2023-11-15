@@ -1,13 +1,13 @@
 # web-calculator
-This is a web-calculator now contains the "0" number. So usable ish.
+This is a web-calculator.
 ## Installation
 Clone the repo: 
 ```
 git clone git@github.com:Fscrew/web-calculator.git
 ```
 ## Repo Layout
-./frontend -> Vue Frontend
-./backend -> Express Backend
+- ./frontend -> Vue Frontend
+- ./backend -> Express Backend
 ## Project setup
 ```
 npm install
