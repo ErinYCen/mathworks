@@ -5,6 +5,9 @@ Clone the repo:
 ```
 git clone git@github.com:Fscrew/web-calculator.git
 ```
+## Repo Layout
+./frontend -> Vue Frontend
+./backend -> Express Backend
 ## Project setup
 ```
 npm install
@@ -32,23 +35,18 @@ npm run start
 cd backend/tests
 npm run test
 ```
-## Usage
+## To access the calculator's frontend
 To run the calculator, open your browser and go to `http://localhost:8080`.
 
-## Run Hello World in Docker
+## Run the Web Calculator with Docker Compose
 1. Install Docker from Docker's official website
 2. Check if it's installed properly
 ```
 docker --version
 ```
-3. Run the docker container
+3. Run the docker app
+4. Run the Web Calculator with Docker Compose
 ```
-cd hello-world-docker
-docker run hello-world
-```
-
-## Run the Web Calculator with Docker Compose
-```bash
 docker-compose up --build
 ```
 ## Technologies Used
@@ -56,6 +54,3 @@ docker-compose up --build
 - Node.js
 - Express
 - TypeScript
-
-## Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
