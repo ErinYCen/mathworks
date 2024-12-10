@@ -10,8 +10,8 @@ git clone git@github.com:ErinYCen/mathworks.git
 - ./backend -> Express Backend
 ## Frontend Setup
 ```
+cd frontend
 npm install
-cd frontend/src
 npm run serve
 ```
 ### Compiles and minifies for production
@@ -24,8 +24,8 @@ npm run lint
 ```
 ## Backend Setup
 ```
-npm install
 cd backend
+npm install
 npm run start
 ```
 ### Run the unit test for the backend
