@@ -8,31 +8,27 @@ git clone git@github.com:ErinYCen/mathworks.git
 ## Repo Layout
 - ./frontend -> Vue Frontend
 - ./backend -> Express Backend
-## Project setup
-```
-npm install
-```
-### Frontend
+## Frontend Setup
 ```
 npm install
 cd frontend/src
 npm run serve
 ```
-#### Compiles and minifies for production
+### Compiles and minifies for production
 ```
 npm run build
 ```
-#### Lints and fixes files
+### Lints and fixes files
 ```
 npm run lint
 ```
-### Backend
+## Backend Setup
 ```
 npm install
 cd backend
 npm run start
 ```
-#### Run the unit test for the backend
+### Run the unit test for the backend
 ```
 cd backend/tests
 npm run test
