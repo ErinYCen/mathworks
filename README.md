@@ -33,7 +33,7 @@ npm run start
 cd backend/tests
 npm run test
 ```
-## Run the Web Calculator with Docker Compose
+## Run the MathWorks  with Docker Compose
 1. Install Docker from Docker's official website
 2. Check if it's installed properly
 ```
@@ -44,7 +44,7 @@ docker --version
 ```
 docker-compose up --build
 ```
-## To access the calculator's frontend
+## To access the frontend
 To run the calculator, open your browser and go to `http://localhost:8080`.
 ## Technologies Used
 - Vue.js
